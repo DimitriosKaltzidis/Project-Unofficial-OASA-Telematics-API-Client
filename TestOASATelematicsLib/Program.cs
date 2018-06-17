@@ -17,7 +17,8 @@ namespace TestOASATelematicsLib
         {
             Console.WriteLine("Hello World!");
             // var request = new GetStopNameAndCoordinatesCommand("400075");
-            var request = new GetClosestStopsCommand("38.065876", "23.798299");
+            // var request = new GetRoutesDetailsAndStopsCommand("2045");
+            var request = new GetMasterLinesCommand();
             var response = request.Execute().Result;
 
             Console.ReadKey();

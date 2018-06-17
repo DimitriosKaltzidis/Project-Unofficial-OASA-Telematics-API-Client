@@ -141,4 +141,118 @@ namespace OASA.Telematics.API.Client
         {
         }
     }
+
+    /// <summary>
+    /// Επιστρέφει τα στοιχεία σχετικά με όλες τις γραμμές των λεωφορείων.
+    /// Line_Code: Το Line_Code είναι ο μοναδικός αριθμός που ορίζει το software της τηλεματικής στην κάθε γραμμή. Βάσει αυτού του αριθμού γίνονται όλοι συσχετισμοί στην βάση δεδομένων του ΟΑΣΑ. Επίσης φαίνεται να είναι URI.
+    /// line_ID: Unicode formatted string το οποίο είναι ο αριθμός της γραμμής
+    /// Line_Descr: Unicode formatted string, με τον τίτλο της γραμμής, ‘ΠΛΑΤΕΙΑ ΚΑΝΙΓΓΟΣ - ΓΚΥΖH(ΚΥΚΛΙΚΗ)’
+    /// Line_Descr_Eng: Ίδιο με το line_descr αλλά ascii formatted
+    /// </summary>
+    public class GetLinesCommand : PostCommand<List<Line>>
+    {
+        public GetLinesCommand()
+            : base($"webGetLines")
+        {
+        }
+    }
+
+    /// <summary>
+    /// Είναι όμοιο με το webGetLines μόνο που στέλνει δύο παραπάνω στοιχεία το ml_code και το sdc_code.
+    /// ml_code: Identifier που έχει να κάνει με την περιοχή έναρξης. (Help needed) Πιθανότατα το ml αντιστοιχεί στο MasterLine.
+    /// sdc_code: Identifier για το ωράριο που ακολουθεί η γραμμή, δες getSchedLines και getScheduleDaysMasterLine
+    /// Line_Code: Το Line_Code είναι ο μοναδικός αριθμός που ορίζει το software της τηλεματικής στην κάθε γραμμή.Βάσει αυτού του αριθμού γίνονται όλοι συσχετισμοί στην βάση δεδομένων του ΟΑΣΑ.Επίσης φαίνεται να είναι URI.
+    /// line_ID: Unicode formatted string το οποίο είναι ο αριθμός της γραμμής
+    /// line_descr: Unicode formatted string, με τον τίτλο της γραμμής, ‘ΠΛΑΤΕΙΑ ΚΑΝΙΓΓΟΣ - ΓΚΥΖH(ΚΥΚΛΙΚΗ)’
+    /// line_descr_eng: Ίδιο με το line_descr αλλά ascii formatted
+    /// </summary>
+    public class GetLinesWithMLInfoCommand : PostCommand<List<LineWithMasterLineInfo>>
+    {
+        public GetLinesWithMLInfoCommand()
+            : base($"webGetLinesWithMLInfo")
+        {
+        }
+    }
+
+    /// <summary>
+    /// Επιστρέφει τις διαδρομές σχετικά με την διαδρομή μιας γραμμής. Για να χρησιμοποιηθεί χρειαζόμαστε και την παράμετρο linecode που μπορούμε να την βρούμε αν φιλτράρουμε τον αριθμό του λεωφορείου που χρειαζόμαστε από τις δράσεις webGetLines και webGetLinesWithMLInfo
+    /// Για παράδειγμα το Α1(linecode = 962) που είναι η γραμμή ΠΕΙΡΑΙΑΣ-ΒΟΥΛΑ , έχει διαδρομές ΠΕΙΡΑΙΑΣ-ΒΟΥΛΑ και ΒΟΥΛΑ-ΠΕΙΡΑΙΑΣ.
+    /// </summary>
+    public class GetRoutesCommand : PostCommand<List<Route>>
+    {
+        public GetRoutesCommand(string lineCode)
+            : base($"webGetRoutes&p1={lineCode}")
+        {
+        }
+    }
+
+    /// <summary>
+    /// Επιστρέφει τις στάσεις μιας διαδρομής.
+    /// Χρειαζόμαστε και μια παράμετρο που είναι το routecode δηλαδή ο κώδικας μιας διαδρομής.
+    /// Στο παράδειγμα εμφανίζεται η πρώτη στάση της διαδρομής ΠΕΙΡΑΙΑΣ-ΒΟΥΛΑ ( routecode = 2045 )
+    /// </summary>
+    public class GetStopsCommand : PostCommand<List<FullStop>>
+    {
+        public GetStopsCommand(string routecode)
+            : base($"webGetStops&p1={routecode}")
+        {
+        }
+    }
+
+    /// <summary>
+    /// Επιστρέφει τις λεπτομέρειες της διαδρομής δηλαδή την τοποθεσία των στάσεων και την σειρά με την οποία τις ‘επισκέπτεται’ το λεωφορείο.
+    /// Χρησιμοποιείται κυρίως για απεικόνηση στο google maps Χρειαζόμαστε και μια παράμετρο που είναι το routecode δηλαδή ο κώδικας μιας διαδρομής.
+    /// Στο παράδειγμα εμφανίζονται τα απότελέσματα του webRouteDetails της διαδρομής ΠΕΙΡΑΙΑΣ-ΒΟΥΛΑ ( routecode = 2045 )
+    /// </summary>
+    public class GetRouteDetailsCommand : PostCommand<List<RouteDetails>>
+    {
+        public GetRouteDetailsCommand(string routeCode)
+            : base($"webRouteDetails&p1={routeCode}")
+        {
+        }
+    }
+
+    /// <summary>
+    /// Επιστρέφει πληροφορίες σχετικά με μια στάση. Χρειαζόμαστε και μια παράμετρο που είναι το stopcode δηλαδή ο κώδικας μιας στάσης.
+    /// Για να τον βρούμε μπορούμε να χρησιμοποιήσουμε την webGetStops.
+    /// Στο παράδειγμα εμφανίζονται τα απότελέσματα του webRoutesForStop της στάσης ΗΣΑΠ Ν.ΦΑΛΗΡΟΥ ( stopcode = 400075 )
+    /// </summary>
+    public class GetRoutesForStopCommand : PostCommand<List<Route>>
+    {
+        public GetRoutesForStopCommand(string stopCode)
+            : base($"webRoutesForStop&p1={stopCode}")
+        {
+        }
+    }
+
+    /// <summary>
+    /// Επιστρέφει τις λεπτομέρειες της διαδρομής και συγκεκριμένα τις στάσεις,
+    /// την σειρά με την οποία εμφανίζονται και την τοποθεσία τους.
+    /// Χρειαζόμαστε και μια παράμετρο που είναι το routecode δηλαδή ο κώδικας μιας διαδρομής.
+    /// Στο παράδειγμα εμφανίζονται τα απότελέσματα του webGetRoutesDetailsAndStops της διαδρομής ΠΕΙΡΑΙΑΣ-ΒΟΥΛΑ ( routecode =2045)
+    /// </summary>
+    public class GetRoutesDetailsAndStopsCommand : PostCommand<RouteDetailsAndStops>
+    {
+        public GetRoutesDetailsAndStopsCommand(string routeCode)
+            : base($"webGetRoutesDetailsAndStops&p1={routeCode}")
+        {
+        }
+    }
+
+
+    public class GetLangsCommand : PostCommand<List<Localizations>>
+    {
+        public GetLangsCommand()
+            : base($"webGetLangs")
+        {
+        }
+    }
+
+    public class GetMasterLinesCommand : PostCommand<List<MasterLine>>
+    {
+        public GetMasterLinesCommand()
+            : base($"webGetMasterLines")
+        {
+        }
+    }
 }
