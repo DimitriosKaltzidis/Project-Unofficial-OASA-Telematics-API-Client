@@ -1,4 +1,4 @@
-﻿namespace OASA.Telematics.API.Client
+﻿namespace OASA.Telematics.Client.Client
 {
     using System.Threading.Tasks;
 

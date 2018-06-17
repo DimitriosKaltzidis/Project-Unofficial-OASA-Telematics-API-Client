@@ -1,4 +1,4 @@
-﻿namespace OASA.Telematics.API
+﻿namespace OASA.Telematics.Client
 {
     public class Config
     {

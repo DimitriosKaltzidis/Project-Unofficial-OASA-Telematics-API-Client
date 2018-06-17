@@ -1,8 +1,9 @@
-﻿using OASA.Telematics.API.Models;
-using System.Collections.Generic;
-
-namespace OASA.Telematics.API.Client
+﻿namespace OASA.Telematics.Client.Client
 {
+    using System.Collections.Generic;
+
+    using OASA.Telematics.Client.Models;
+
     /// <summary>
     /// Επιστρέφει τα λεωφορεία που αναμένει σύντομα η στάση.
     /// Χρειαζόμαστε και μια παράμετρο που είναι το stopcode δηλαδή ο κώδικας μιας στάσης.

@@ -7,8 +7,8 @@
     <ProjectGuid>{54961068-DA2A-4A53-97A5-1437B0597F66}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>OASA.Telematics.API</RootNamespace>
-    <AssemblyName>OASA.Telematics.API</AssemblyName>
+    <RootNamespace>OASA.Telematics.Client</RootNamespace>
+    <AssemblyName>OASA.Telematics.Client</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -47,6 +47,7 @@
     <Compile Include="Client\APIClient.cs" />
     <Compile Include="Client\CommandBaseClasses.cs" />
     <Compile Include="Client\Commands.cs" />
+    <Compile Include="Extensions.cs" />
     <Compile Include="Models\BusLocation.cs" />
     <Compile Include="Models\Come.cs" />
     <Compile Include="Models\FullStop.cs" />

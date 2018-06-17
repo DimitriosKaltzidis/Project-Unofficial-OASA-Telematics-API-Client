@@ -49,9 +49,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\OASA.Telematics.API\OASA.Telematics.API.csproj">
+    <ProjectReference Include="..\OASA.Telematics.API\OASA.Telematics.Client.csproj">
       <Project>{54961068-da2a-4a53-97a5-1437b0597f66}</Project>
-      <Name>OASA.Telematics.API</Name>
+      <Name>OASA.Telematics.Client</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

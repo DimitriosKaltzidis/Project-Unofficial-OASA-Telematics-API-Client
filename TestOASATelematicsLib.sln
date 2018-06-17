@@ -5,7 +5,7 @@ VisualStudioVersion = 15.0.27703.2026
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestOASATelematicsLib", "TestOASATelematicsLib\TestOASATelematicsLib.csproj", "{F784820C-49D8-4D56-8129-E530BA194A32}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OASA.Telematics.API", "OASA.Telematics.API\OASA.Telematics.API.csproj", "{54961068-DA2A-4A53-97A5-1437B0597F66}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OASA.Telematics.Client", "OASA.Telematics.API\OASA.Telematics.Client.csproj", "{54961068-DA2A-4A53-97A5-1437B0597F66}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

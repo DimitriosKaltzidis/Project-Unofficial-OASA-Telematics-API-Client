@@ -8,18 +8,20 @@ namespace TestOASATelematicsLib
 {
     using System.ComponentModel.Design;
 
-    using OASA.Telematics.API.Client;
-    using OASA.Telematics.API.Models;
+    using OASA.Telematics.Client;
+    using OASA.Telematics.Client.Client;
 
     class Program
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
-            // var request = new GetStopNameAndCoordinatesCommand("400075");
-            // var request = new GetRoutesDetailsAndStopsCommand("2045");
             var request = new GetMasterLinesCommand();
             var response = request.Execute().Result;
+
+            foreach (var masterLine in response)
+            {
+                Console.WriteLine($"{masterLine.MasterLineCode} - {masterLine.LineCode}");
+            }
 
             Console.ReadKey();
         }

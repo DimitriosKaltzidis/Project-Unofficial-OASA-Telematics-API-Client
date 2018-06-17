@@ -1,4 +1,4 @@
-﻿namespace OASA.Telematics.API.Models
+﻿namespace OASA.Telematics.Client.Models
 {
     using System.Collections.Generic;
 
