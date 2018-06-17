@@ -14,10 +14,12 @@ B) **OASA.Telematics.DemoTest:** The second project is a Demo - Test Console app
 
 A) **Sync:**        
 >var request = new GetMasterLinesCommand(); 
+
 >var response = request.Execute().Result; 
 
 B) **Async:** 
 >var request = new GetMasterLinesCommand(); 
+
 >var response = await request.Execute();
 
 Thanks **gph03n1x** for his detailed api documentation : 
