@@ -4,16 +4,15 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{F784820C-49D8-4D56-8129-E530BA194A32}</ProjectGuid>
-    <OutputType>Exe</OutputType>
-    <RootNamespace>TestOASATelematicsLib</RootNamespace>
-    <AssemblyName>TestOASATelematicsLib</AssemblyName>
+    <ProjectGuid>{54961068-DA2A-4A53-97A5-1437B0597F66}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>OASA.Telematics.API</RootNamespace>
+    <AssemblyName>OASA.Telematics.API</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -23,7 +22,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -32,6 +30,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -42,17 +43,27 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Program.cs" />
+    <Compile Include="Config.cs" />
+    <Compile Include="Client\APIClient.cs" />
+    <Compile Include="Client\CommandBaseClasses.cs" />
+    <Compile Include="Client\Commands.cs" />
+    <Compile Include="Models\BusLocation.cs" />
+    <Compile Include="Models\Come.cs" />
+    <Compile Include="Models\Go.cs" />
+    <Compile Include="Models\LineName.cs" />
+    <Compile Include="Models\LinesAndRoutesForMasterLine.cs" />
+    <Compile Include="Models\MasterLineName.cs" />
+    <Compile Include="Models\RouteName.cs" />
+    <Compile Include="Models\RoutesForLine.cs" />
+    <Compile Include="Models\SchedLines.cs" />
+    <Compile Include="Models\ScheduleDaysMasterLine.cs" />
+    <Compile Include="Models\Stop.cs" />
+    <Compile Include="Models\StopArrival.cs" />
+    <Compile Include="Models\StopNameAndCoordinates.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\OASA.Telematics.API\OASA.Telematics.API.csproj">
-      <Project>{54961068-da2a-4a53-97a5-1437b0597f66}</Project>
-      <Name>OASA.Telematics.API</Name>
-    </ProjectReference>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
