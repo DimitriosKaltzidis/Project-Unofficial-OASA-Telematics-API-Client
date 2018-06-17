@@ -25,10 +25,7 @@
         {
             var client = new HttpClient();
 
-            var uri = $"{url}";
-
-            // Request body
-            var response = await client.PostAsync(uri, null);
+            var response = await client.PostAsync(url, null);
 
             return response;
         }
