@@ -20,7 +20,7 @@ B) **Async:**
 >var request = new GetMasterLinesCommand(); 
 >var response = await request.Execute();
 
-Thanks gph03n1x for his detailed api documentation : 
+Thanks **gph03n1x** for his detailed api documentation : 
 https://github.com/gph03n1x/OASA-Telematics-API-Documentation
 
 # Warning 
