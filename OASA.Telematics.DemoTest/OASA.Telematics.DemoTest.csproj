@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{F784820C-49D8-4D56-8129-E530BA194A32}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>TestOASATelematicsLib</RootNamespace>
-    <AssemblyName>TestOASATelematicsLib</AssemblyName>
+    <RootNamespace>OASA.Telematics.DemoTest</RootNamespace>
+    <AssemblyName>OASA.Telematics.DemoTest</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -49,7 +49,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\OASA.Telematics.API\OASA.Telematics.Client.csproj">
+    <ProjectReference Include="..\OASA.Telematics.Client\OASA.Telematics.Client.csproj">
       <Project>{54961068-da2a-4a53-97a5-1437b0597f66}</Project>
       <Name>OASA.Telematics.Client</Name>
     </ProjectReference>

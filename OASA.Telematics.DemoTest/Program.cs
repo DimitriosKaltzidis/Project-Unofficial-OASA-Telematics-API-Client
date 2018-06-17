@@ -1,14 +1,7 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace TestOASATelematicsLib
+namespace OASA.Telematics.DemoTest
 {
-    using System.ComponentModel.Design;
+    using System;
 
-    using OASA.Telematics.Client;
     using OASA.Telematics.Client.Client;
 
     class Program

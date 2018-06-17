@@ -240,7 +240,12 @@
         }
     }
 
-
+    /// <summary>
+    /// Επιστρέφει strings τα οποία χρησιμοποιούνται για localization από την σελίδα του OASA.
+    /// lang_id : Το id του string
+    /// el : το string με ελληνικούς χαρακτήρες (unicode)
+    /// en : το string με αγγλικούς χαρακτήρες (ascii)
+    /// </summary>
     public class GetLangsCommand : PostCommand<List<Localizations>>
     {
         public GetLangsCommand()
@@ -249,6 +254,19 @@
         }
     }
 
+    /// <summary>
+    /// Ως Masterlines, η τηλεματική ορίζει όλες τις πρωταρχικές γραμμές.
+    /// Για παράδειγμα μπορείτε να δείτε εδώ .
+    /// Πρωταρχική γραμμή θεωρείται η γραμμή 84, η οποία έχει ως παιδιά τις γραμμές 84Α και 84Β.
+    /// Ο ΟΑΣΑ, δεν χρησιμοποιεί τις masterlines γιατί δεν έχει βασίσει το σύστημα των γραμμών του σε πρωταρχικές γραμμές
+    /// ml_id: Από ότι φαίνεται είναι λογικά το νούμερο της γραμμής.
+    /// ml_code: Identifier που έχει να κάνει με την περιοχή έναρξης. (Help needed) Πιθανότατα το ml αντιστοιχεί στο MasterLine.
+    /// sdc_code: Identifier για το ωράριο που ακολουθεί η γραμμή, δες getSchedLines και getScheduleDaysMasterLine
+    /// line_code: Το Line_Code είναι ο μοναδικός αριθμός που ορίζει το software της τηλεματικής στην κάθε γραμμή.Βάσει αυτού του αριθμού γίνονται όλοι συσχετισμοί στην βάση δεδομένων του ΟΑΣΑ.Επίσης φαίνεται να είναι URI.
+    /// ml_descr: Unicode formatted string, με τον τίτλο της γραμμής, ‘ΠΛΑΤΕΙΑ ΚΑΝΙΓΓΟΣ - ΓΚΥΖH(ΚΥΚΛΙΚΗ)’
+    /// ml_descr_eng: πάντα null λογικά δεν έχει υλοποιηθεί ακόμα αλλά λογικά θα επιστρέφει στο μέλλον το ml_descr με ascii χαρακτήρες.
+    /// is_complex : δεν γνωρίζω τι αντιπροσωπεύει
+    /// </summary>
     public class GetMasterLinesCommand : PostCommand<List<MasterLine>>
     {
         public GetMasterLinesCommand()
