@@ -1,5 +1,4 @@
 # Project-Unofficial-OASA-Telematics-API-Client
-**Αχμμμμ...** Τι είναι λεωφορείο???
 
 **This is an unofficial client for the OASA Telematices API.**
 
